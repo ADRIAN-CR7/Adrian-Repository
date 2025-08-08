@@ -10,8 +10,8 @@ int main() {
     int p_turisticos1, p_turisticos2;
 
     printf("Digite o nome da primeira cidade:\n");
-    fgets(cidade1, sizeof(cidade1), stdin);
-    cidade1[strcspn(cidade1, "\n")] = '\0'; 
+    fgets(cidade1, sizeof(cidade1), stdin); // lê a linha toda
+    cidade1[strcspn(cidade1, "\n")] = '\0'; //remove o entender no final
     
     printf("Digite  o seu código:\n");
     scanf("%d", &codigo1);
@@ -60,6 +60,7 @@ int main() {
        
     return 0;
 }
+
 
 
 
