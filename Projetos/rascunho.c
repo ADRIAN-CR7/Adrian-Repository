@@ -1,38 +1,36 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main() {
-    float temperatura, umidade;
-    unsigned int estoque, estoqueMinimo = 1000;
 
-    printf("Entre com a temperatura (°C): \n");
-    scanf("%f", &temperatura);  // apenas número, sem vírgula
+  int numeroSecreto, jogo;
 
-    printf("Entre com a umidade (%%): \n");
-    scanf("%f", &umidade);      // apenas número, sem vírgula
+  printf("Dígite um número de 1 a 3\n");
+  printf("1 para Pedra, 2 para Papel e 3 para Tesoura\n");
+  scanf("%d", &jogo);
+  srand(time(NULL));
 
-    printf("Entre com o estoque: \n");
-    scanf("%u", &estoque);      // apenas número inteiro
+numeroSecreto = rand() % 3 + 1; 
 
-    // Verificação da temperatura
-    if (temperatura > 30) {
-        printf("Temperatura está alta.\n");
-    } else {
-        printf("Temperatura está dentro dos parâmetros.\n");
-    }
+printf("Computador escolheu: ");
+    switch (numeroSecreto) {
+        case 1: printf("Pedra\n"); break;
+        case 2: printf("Papel\n"); break;
+        case 3: printf("Tesoura\n"); break;}
 
-    // Verificação da umidade
-    if (umidade < 50) {
-        printf("Umidade baixa.\n");
-    } else {
-        printf("Umidade está dentro dos parâmetros.\n");
-    }
-
-    // Verificação do estoque
-    if (estoque < estoqueMinimo) {
-        printf("Estoque abaixo do mínimo.\n");
-    } else {
-        printf("Estoque normal.\n");
-    }
-
-    return 0;
+  if(jogo == numeroSecreto){
+    printf("você empatou o jogo");
+  }
+else if((jogo == 1) && (numeroSecreto == 3) ||
+        (jogo == 2) && (numeroSecreto == 1) ||
+        (jogo == 3) && (numeroSecreto == 2)){
+            printf(" você venceu o jogo");
+        }
+ else if ((jogo == 3) && (numeroSecreto == 1) ||
+        (jogo == 1) && (numeroSecreto == 2) ||
+        (jogo == 2) && (numeroSecreto == 3)) {
+            printf("você perdeu");
+        }
+  return 0;
 }
